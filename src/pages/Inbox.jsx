@@ -8,6 +8,13 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+// import Card from '@mui/material/Card';
+// import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+// import Typography from '@mui/material/Typography';
+// import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea } from '@mui/material';
+
 import {
     Link
 } from "react-router-dom";
@@ -21,7 +28,7 @@ function Inbox() {
         const myTimeout = setTimeout(myGreeting, 1500);
 
         function myGreeting() {
-            getData()
+            // getData()
             clearTimeout(myTimeout);
         }
         // getData()
@@ -52,6 +59,10 @@ function Inbox() {
         }
     }
 
+    function handleFullPicture() {
+        alert('handleFullPicture')
+    }
+
     return (
         <>
             <p>Inbox</p>
@@ -67,7 +78,32 @@ function Inbox() {
                 </Stack>
                 :
                 <>
-                    {
+                    <Card sx={{ maxWidth: "100%" }} onClick={handleFullPicture}>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                height="140"
+                                image="https://lh3.googleusercontent.com/drive-viewer/AAOQEOT-7yujjMR2IoG612SggvzSsgUlj7yhWMTUKJV6iGmoTwn-q4cdtZJH1yvvyAKR0v2jmI-69O2sMantk2HG8RoqoWtL_w=w1920-h1093"
+                                alt="green iguana"
+                            />
+                            {/* <CardContent>
+                                <Typography gutterBottom variant="h5" component="div">
+                                    Lizard
+                                </Typography>
+                                <Typography variant="body2" color="text.secondary">
+                                    Lizards are a widespread group of squamate reptiles, with over 6,000
+                                    species, ranging across all continents except Antarctica
+                                </Typography>
+                            </CardContent> */}
+                        </CardActionArea>
+                        {/* <CardActions>
+                            <Button size="small" color="primary">
+                                Share
+                            </Button>
+                        </CardActions> */}
+                    </Card>
+
+                    {/* {
                         dataApi.map((data) =>
                             <Card sx={{ minWidth: 275 }} key={data.id}>
                                 <CardContent>
@@ -87,14 +123,15 @@ function Inbox() {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    {/* onClick={() => handleSidebarNavLink('inbox')} */}
                                     <Link to={`/inbox-details/${data.id}`}>
                                         <Button size="small">Learn More</Button>
                                     </Link>
                                 </CardActions>
                             </Card>
                         )
-                    }
+                    } */}
+                    {/* onClick={() => handleSidebarNavLink('inbox')} */}
+
                 </>
             }
         </>
