@@ -1,7 +1,10 @@
 const staticCacheName = "site-static-v1";
 const dynamicCacheName = "site-dynamic-v1";
 
-const assets = ["/", "/index.html"];
+const assets = [
+  "/", 
+  "/index.html"
+];
 
 // install service worker
 self.addEventListener("install", (event) => {
@@ -44,4 +47,61 @@ self.addEventListener("fetch", (event) => {
       );
     })
   );
+
+
+  if (event.request.url.endsWith('.mp4')) {
+
+    console.log("INI LG DI CACHE ")
+    console.log(event.request.url);
+
+    event.respondWith(
+      caches.match(event.request).then(function(response) {
+        if (response) {
+          return response;
+        }
+
+        return fetch(event.request).then(function(response) {
+          if (!response || response.status !== 200 || response.type !== 'video/mp4') {
+            return response;
+          }
+
+          var responseToCache = response.clone();
+
+          caches.open('my-video-cache').then(function(cache) {
+            cache.put(event.request, responseToCache);
+          });
+
+          return response;
+        });
+      })
+    );
+  }
+
+
 });
+
+// self.addEventListener('fetch', function(event) {
+//   if (event.request.url.endsWith('.mp4')) {
+//     event.respondWith(
+//       caches.match(event.request).then(function(response) {
+//         if (response) {
+//           return response;
+//         }
+
+//         return fetch(event.request).then(function(response) {
+//           if (!response || response.status !== 200 || response.type !== 'video/mp4') {
+//             return response;
+//           }
+
+//           var responseToCache = response.clone();
+
+//           caches.open('my-video-cache').then(function(cache) {
+//             cache.put(event.request, responseToCache);
+//           });
+
+//           return response;
+//         });
+//       })
+//     );
+//   }
+// });

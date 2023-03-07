@@ -67,26 +67,49 @@ function Inbox() {
         <>
             <p>Inbox</p>
 
-            {dataApi.length == 0 ?
+            {/* For variant="text", adjust the height via font-size */}
+            {/* For other variants, adjust the size with `width` and `height` */}
+            {/* {dataApi.length == 0 ?
                 <Stack spacing={1}>
-                    {/* For variant="text", adjust the height via font-size */}
                     <Skeleton variant="text" sx={{ fontSize: '1rem' }} />
-                    {/* For other variants, adjust the size with `width` and `height` */}
                     <Skeleton variant="circular" width={40} height={40} />
                     <Skeleton variant="rectangular" width={210} height={60} />
                     <Skeleton variant="rounded" width={210} height={60} />
                 </Stack>
                 :
-                <>
-                    <Card sx={{ maxWidth: "100%" }} onClick={handleFullPicture}>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                height="140"
-                                image="https://lh3.googleusercontent.com/drive-viewer/AAOQEOT-7yujjMR2IoG612SggvzSsgUlj7yhWMTUKJV6iGmoTwn-q4cdtZJH1yvvyAKR0v2jmI-69O2sMantk2HG8RoqoWtL_w=w1920-h1093"
-                                alt="green iguana"
-                            />
-                            {/* <CardContent>
+                <> */}
+
+            {/* <video width="320" height="240" controls>
+                <source src="https://www.mediafire.com/file/6kcapf1coq6fbp2/videoplayback.mp4" type="video/mp4" />
+            </video> */}
+
+            {/* <video data-v-30244848="" id="videoplayer_html5_api" muted="muted" class="vjs-tech" tabindex="-1" preload="auto" autoplay="" src="blob:https://www.terabox.com/61be831c-ad1b-41e0-9c4f-6c13424ad834"></video> */}
+
+            {/* <video width="320" height="240" controls>
+                <source src="https://www.terabox.com/play/video?path=%2Fvideoplayback.mp4" type="video/mp4" />
+            </video> */}
+
+            <video width="320" height="240" controls>
+                <source src="https://terabox.com/s/15kywOPnEGEV0Ay_p2MAmxQ" type="video/mp4" />
+            </video>
+
+            {/* <video width="320" height="240" controls>
+                <source src="https://drive.google.com/u/0/uc?id=1cx_G51GPq1y5x0UngrjLd3hCn8-uDXia&export=download" type="video/mp4" />
+            </video> */}
+
+            {/* <iframe src="https://player.vimeo.com/video/805370081?h=f11fe14c0c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="videoplayback.mp4"></iframe> */}
+
+            {/* <iframe src="https://drive.google.com/file/d/1cx_G51GPq1y5x0UngrjLd3hCn8-uDXia/preview" width="640" height="480" allow="autoplay"></iframe> */}
+
+            <Card sx={{ maxWidth: "100%" }} onClick={handleFullPicture}>
+                <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image="https://lh3.googleusercontent.com/drive-viewer/AAOQEOT-7yujjMR2IoG612SggvzSsgUlj7yhWMTUKJV6iGmoTwn-q4cdtZJH1yvvyAKR0v2jmI-69O2sMantk2HG8RoqoWtL_w=w1920-h1093"
+                        alt="green iguana"
+                    />
+                    {/* <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">
                                     Lizard
                                 </Typography>
@@ -95,15 +118,15 @@ function Inbox() {
                                     species, ranging across all continents except Antarctica
                                 </Typography>
                             </CardContent> */}
-                        </CardActionArea>
-                        {/* <CardActions>
+                </CardActionArea>
+                {/* <CardActions>
                             <Button size="small" color="primary">
                                 Share
                             </Button>
                         </CardActions> */}
-                    </Card>
+            </Card>
 
-                    {/* {
+            {/* {
                         dataApi.map((data) =>
                             <Card sx={{ minWidth: 275 }} key={data.id}>
                                 <CardContent>
@@ -130,10 +153,10 @@ function Inbox() {
                             </Card>
                         )
                     } */}
-                    {/* onClick={() => handleSidebarNavLink('inbox')} */}
+            {/* onClick={() => handleSidebarNavLink('inbox')} */}
 
-                </>
-            }
+            {/* </>
+            } */}
         </>
     );
 }
